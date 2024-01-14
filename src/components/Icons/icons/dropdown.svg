@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .cls-dropdown{fill:#141b29}
+        </style>
+    </defs>
+    <g id="dropdown_24dp" transform="translate(-3629.5 7996)">
+        <path id="frame" transform="translate(3629.5 -7996)" style="fill:transparent" d="M0 0h24v24H0z"/>
+        <path id="Polygon_5" data-name="Polygon 5" class="cls-dropdown" d="M4.232.922a1 1 0 0 1 1.536 0L8.633 4.36A1 1 0 0 1 7.865 6h-5.73a1 1 0 0 1-.768-1.64z" transform="rotate(180 1823.269 -3988.383)"/>
+        <path id="Polygon_4" data-name="Polygon 4" class="cls-dropdown" d="M4.232.922a1 1 0 0 1 1.536 0L8.633 4.36A1 1 0 0 1 7.865 6h-5.73a1 1 0 0 1-.768-1.64z" transform="translate(3636.5 -7991.25)"/>
+    </g>
+</svg>

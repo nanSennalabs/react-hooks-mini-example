@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <clipPath id="clip">
+            <use xlink:href="#fill"/>
+        </clipPath>
+        <style>
+            .cls-edit{stroke:none}
+        </style>
+    </defs>
+    <g id="delete_24dp" transform="translate(-3123 8452)">
+        <g id="icon" transform="translate(-693.815 884.185)">
+            <g id="Ellipse_2" data-name="Ellipse 2" transform="translate(3819.815 -9333.185)" style="stroke-width:2px;fill:#fff;stroke:#e3e9f3">
+                <circle class="cls-edit" cx="9" cy="9" r="9"/>
+                <circle cx="9" cy="9" r="8" style="fill:none"/>
+            </g>
+            <g id="Rectangle_1-2" data-name="Rectangle 1" transform="translate(3825.815 -9325.185)" style="stroke:#0089ff;stroke-linecap:round;stroke-linejoin:round;fill:none;stroke-width:2px">
+                <path id="fill" class="cls-edit" d="M0 0h6v1.5H0z"/>
+                <path d="M0 .5h6M5 0v1.5M6 1H0m1 .5V0" style="clip-path:url(#clip);fill:none"/>
+            </g>
+        </g>
+    </g>
+</svg>

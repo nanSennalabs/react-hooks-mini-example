@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <path data-name="Rectangle 19728" style="fill:transparent" d="M0 0h32v32H0z"/>
+    <path data-name="Path 17829" d="M9.5 2C8.672 2 8 2.448 8 3s.672 1 1.5 1h3c.828 0 1.5-.448 1.5-1s-.672-1-1.5-1z" transform="translate(5.017 4)" style="fill:currentColor"/>
+    <path data-name="Path 17830" d="M4 5.533A2.6 2.6 0 0 1 6.667 3a3.9 3.9 0 0 0 4 3.8h2.667a3.9 3.9 0 0 0 4-3.8A2.6 2.6 0 0 1 20 5.533v13.934A2.6 2.6 0 0 1 17.333 22H6.667A2.6 2.6 0 0 1 4 19.467zM8 10.6a1.268 1.268 0 1 0 0 2.533h.013a1.268 1.268 0 1 0 0-2.533zm4 0a1.268 1.268 0 1 0 0 2.533h4a1.268 1.268 0 1 0 0-2.533zm-4 5.067A1.268 1.268 0 1 0 8 18.2h.013a1.268 1.268 0 1 0 0-2.533zm4 0a1.268 1.268 0 1 0 0 2.533h4a1.268 1.268 0 1 0 0-2.533z" transform="translate(4 4)" style="fill-rule:evenodd;fill:currentColor"/>
+</svg>

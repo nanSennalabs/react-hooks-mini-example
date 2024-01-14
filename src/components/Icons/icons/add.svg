@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <defs>
+        <style>
+            .cls-3{stroke-width:2px}.cls-3,.cls-5{fill:none}.cls-3{stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}.cls-4{stroke:none}
+        </style>
+    </defs>
+    <g id="add_32dp" transform="translate(-3123.025 8451.976)">
+        <path id="Rectangle_1" data-name="Rectangle 1" transform="translate(3123.025 -8451.976)" style="fill:transparent" d="M0 0h32v32H0z"/>
+        <g id="icon" transform="translate(3127.006 -8447.994)">
+            <g id="Ellipse_3" data-name="Ellipse 3" transform="translate(.019 .019)" style="stroke-width:2px;fill:#fff;stroke:#e3e9f3">
+                <circle class="cls-4" cx="12" cy="12" r="12"/>
+                <circle class="cls-5" cx="12" cy="12" r="11"/>
+            </g>
+            <g id="Rectangle_2" data-name="Rectangle 2" class="cls-3">
+                <path class="cls-4" d="M0 0h8.012v2.003H0z" transform="translate(8.012 10.683)"/>
+                <path class="cls-5" d="M1 1h6.012v.003H1z" transform="translate(8.012 10.683)"/>
+            </g>
+            <g id="Rectangle_1-2" data-name="Rectangle 1" class="cls-3">
+                <path class="cls-4" d="M0 0h8.012v2.003H0z" transform="rotate(90 2.67 10.35)"/>
+                <path class="cls-5" d="M1 1h6.012v.003H1z" transform="rotate(90 2.67 10.35)"/>
+            </g>
+        </g>
+    </g>
+</svg>

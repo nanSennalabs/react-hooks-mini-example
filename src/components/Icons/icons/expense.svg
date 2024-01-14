@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <path data-name="Rectangle 19728" style="fill:transparent" d="M0 0h32v32H0z"/>
+    <g data-name="Group 20874">
+        <path data-name="Path 17802" d="M5 2a2 2 0 0 0-2 2v14l3.5-2 3.5 2 3.5-2 3.5 2V4a2 2 0 0 0-2-2zm2.5 3A1.5 1.5 0 1 0 9 6.5 1.5 1.5 0 0 0 7.5 5zm6.207.293a1 1 0 0 0-1.414 0l-6 6a1 1 0 1 0 1.414 1.414l6-6a1 1 0 0 0 0-1.414zM12.5 10a1.5 1.5 0 1 0 1.5 1.5 1.5 1.5 0 0 0-1.5-1.5z" transform="translate(6 6)" style="fill:#fff;fill-rule:evenodd"/>
+    </g>
+</svg>

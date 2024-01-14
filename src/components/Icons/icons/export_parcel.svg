@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <defs>
+        <style>
+            .export-parcel-cls-2{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round}
+        </style>
+    </defs>
+    <g id="export_24dp" transform="translate(-195 -214)">
+        <path id="frame_icon" data-name="frame icon" transform="translate(195 214)" style="fill:none" d="M0 0h16v16H0z"/>
+        <g id="icon" transform="translate(18392 13263)">
+            <path id="Path_17894" data-name="Path 17894" class="export-parcel-cls-2" d="M7 7H5.5A1.424 1.424 0 0 0 4 8.333v6a1.424 1.424 0 0 0 1.5 1.333h9a1.424 1.424 0 0 0 1.5-1.333v-6A1.424 1.424 0 0 0 14.5 7H13m-9 4h1.94a.8.8 0 0 1 .53.2l1.81 1.6a.8.8 0 0 0 .53.2h2.38a.8.8 0 0 0 .53-.2l1.81-1.6a.8.8 0 0 1 .53-.2H16" transform="translate(-18199 -13050.667)"/>
+            <path id="Path_17895" data-name="Path 17895" class="export-parcel-cls-2" d="M11 8.333V3m0 0 2 2m-2-2L9 5" transform="translate(-18200 -13050)"/>
+        </g>
+    </g>
+</svg>

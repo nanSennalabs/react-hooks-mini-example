@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <path data-name="Rectangle 19728" style="fill:transparent" d="M0 0h32v32H0z"/>
+    <g data-name="Group 21838">
+        <path data-name="Path 17798" d="M4 3a2 2 0 0 0 0 4h12a2 2 0 0 0 0-4z" transform="translate(6 6)" style="fill:#fff"/>
+        <path data-name="Path 17799" d="M3 8h14v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zm5 3a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2H9a1 1 0 0 1-1-1z" transform="translate(6 6)" style="fill-rule:evenodd;fill:#fff"/>
+    </g>
+</svg>

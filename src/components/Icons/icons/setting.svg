@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <defs>
+        <style>
+            .cls-setting{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+        </style>
+    </defs>
+    <g id="menu_16dp" transform="translate(-630)">
+        <g id="Group_22066" data-name="Group 22066" transform="translate(632 2)">
+            <path id="Path_17859" data-name="Path 17859" class="cls-setting" d="M7.883 3.878a1.149 1.149 0 0 1 2.233 0 1.149 1.149 0 0 0 1.715.711 1.15 1.15 0 0 1 1.58 1.58 1.149 1.149 0 0 0 .71 1.715 1.149 1.149 0 0 1 0 2.233 1.149 1.149 0 0 0-.711 1.715 1.15 1.15 0 0 1-1.58 1.58 1.149 1.149 0 0 0-1.715.71 1.149 1.149 0 0 1-2.233 0 1.149 1.149 0 0 0-1.715-.711 1.15 1.15 0 0 1-1.58-1.58 1.149 1.149 0 0 0-.71-1.715 1.149 1.149 0 0 1 0-2.233 1.149 1.149 0 0 0 .711-1.715 1.15 1.15 0 0 1 1.58-1.58 1.149 1.149 0 0 0 1.715-.71z" transform="translate(-3 -3)"/>
+            <path id="Path_17860" data-name="Path 17860" class="cls-setting" d="M13 11a2 2 0 1 1-2-2 2 2 0 0 1 2 2z" transform="translate(-5 -5)"/>
+        </g>
+    </g>
+</svg>
