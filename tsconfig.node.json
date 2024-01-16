@@ -1,14 +1,11 @@
 {
 	"compilerOptions": {
-		"allowSyntheticDefaultImports": true,
-		"composite": true,
-		"forceConsistentCasingInFileNames": true,
-		"isolatedModules": true,
-		"module": "ESNext",
-		"moduleResolution": "Node",
-		"skipLibCheck": true,
-		"strict": true,
-		"target": "ESNext"
+	  "composite": true,
+	  "skipLibCheck": true,
+	  "module": "ESNext",
+	  "moduleResolution": "bundler",
+	  "allowSyntheticDefaultImports": true
 	},
 	"include": ["vite.config.ts"]
-}
+  }
+  

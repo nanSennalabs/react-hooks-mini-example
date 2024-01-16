@@ -1,11 +1,22 @@
-import { BrowserRouter } from 'react-router-dom'
-import type { ReactElement } from 'react'
-import Router from './Router'
+import { hookRoutes } from "features/hook/hookRoutes";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 
-export default function App(): ReactElement {
-	return (
-		<BrowserRouter>
-			<Router />
-		</BrowserRouter>
-	)
+export function App() {
+  const router = createBrowserRouter([
+    {
+      path: "",
+      element: <Navigate to="" />,
+    },
+    {
+      path: "*",
+      element: <Navigate to="" />,
+    },
+    ...hookRoutes,
+  ]);
+
+  return <RouterProvider router={router} />;
 }
