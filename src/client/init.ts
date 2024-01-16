@@ -1,11 +1,19 @@
-import Axios from 'axios'
-import { QueryClient } from 'react-query'
-import { API_URL } from '@config/config'
-import { Client } from '@client/client'
+import axios from "axios";
+import { QueryCache, QueryClient } from "react-query";
+import { Client } from "./Client";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+    },
+  },
+});
+const queryCache = new QueryCache();
+const axiosInstance = axios.create({
+  baseURL: import.meta.env.VITE_API_URL,
+});
+const client = new Client(axiosInstance);
 
-const clientInstance = Axios.create({ baseURL: String(API_URL) })
-const client = new Client(clientInstance)
-
-export { client, queryClient }
+export { queryClient, queryCache, client };

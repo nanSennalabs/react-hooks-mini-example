@@ -1,122 +1,92 @@
-import { toast } from 'react-toastify'
-import type { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios'
-import { ProductClientActions } from '@client/collections/ProductClientActions'
-
-import type { AuthFunctionListenerType } from './interfaces'
-import { AuthenClientActions } from './collections/AuthenClientActions'
-import { queryClient } from './init'
-
-function injectAuthorizationToken(
-	headers: Record<string, unknown>,
-	token: string
-) {
-	return { ...headers, Authorization: `Bearer ${token}` }
-}
+import axios, {
+  AxiosInstance,
+  AxiosRequestHeaders,
+  InternalAxiosRequestConfig,
+} from "axios";
 
 export class Client {
-	isRefreshingAccessToken = false
+  _client: AxiosInstance;
 
-	authStateListener = [] as AuthFunctionListenerType
+  constructor(private client: AxiosInstance) {
+    this._client = this.client;
+    this._client.interceptors.request.use(
+      (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
+        if (this.accessToken !== null) {
+          return {
+            ...config,
+            headers: {
+              ...config.headers,
+              Authorization: `Bearer ${this.accessToken}`,
+            } as AxiosRequestHeaders,
+          };
+        }
+        return config;
+      }
+    );
 
-	retryRequestTasks = [] as AuthFunctionListenerType
+    this._client.interceptors.response.use(
+      (response) => {
+        return response;
+      },
+      async (error) => {
+        const request = error.config;
+        // Handle token expiration and retry the request with a refreshed token
+        if (
+          error.response &&
+          error.response.status === 401 &&
+          !request._retry &&
+          !!this.refreshToken
+        ) {
+          request._retry = true;
+          const isRefreshSuccess = await this.refreshAccessToken();
+          if (isRefreshSuccess) {
+            return this._client(request);
+          }
+        }
+        return Promise.reject(error);
+      }
+    );
+  }
 
-	readonly auth: AuthenClientActions
+  async refreshAccessToken() {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}auth/refresh`,
+        {
+          headers: {
+            Authorization: `Bearer ${this.refreshToken}`,
+          } as AxiosRequestHeaders,
+        }
+      );
+      this.accessToken = response.data.accessToken;
+      this.refreshToken = response.data.refreshToken;
+      return !!this.accessToken;
+    } catch (_) {
+      return false;
+    }
+  }
 
-	readonly product: ProductClientActions
+  get accessToken() {
+    return localStorage.getItem("act");
+  }
 
-	constructor(private readonly client: AxiosInstance) {
-		this.setupClient()
-		this.authStateListener.push(this.handleProfileInvalidation.bind(this))
+  set accessToken(token) {
+    if (typeof token === "undefined" || token === null) {
+      localStorage.removeItem("act");
+      return;
+    }
+    localStorage.setItem("act", token ?? "");
+  }
 
-		this.auth = new AuthenClientActions(this.client, this.authStateListener)
-		this.product = new ProductClientActions(this.client)
-	}
+  get refreshToken() {
+    return localStorage.getItem("rft");
+  }
 
-	onAuthStateChange(listener: () => void) {
-		this.authStateListener.push(listener)
-
-		return () => this.authStateListener.filter(l => listener === l)
-	}
-
-	setupClient() {
-		this.client.interceptors.request.use(config => {
-			if (this.auth.accessToken != null) {
-				return this.configWithAuthorization(config, this.auth.accessToken)
-			}
-
-			return config
-		})
-
-		this.client.interceptors.response.use(
-			response => response,
-			async (error: AxiosError) => {
-				if (!this.isAccessTokenExpired(error)) {
-					return Promise
-						.reject
-						// plainToClass(ErrorMessage, error.response?.data)
-						()
-				}
-				// DESC: if token expired, logout user.
-				toast.error('เซสชั่นหมดอายุ กรุณาเข้าสู่ระบบใหม่อีกครั้ง')
-				await this.auth.logout()
-				await this.handleProfileInvalidation()
-
-				if (!this.isRefreshingAccessToken) {
-					this.isRefreshingAccessToken = true
-					// this.auth
-					//   .refreshAccessToken()
-					//   .then(
-					//     this.handleRefreshAccessTokenSuccess.bind(this),
-					//     this.handleRefreshAccessTokenFail.bind(this)
-					//   )
-				}
-
-				// return Promise.reject(plainToClass(ErrorMessage, error.response?.data))
-			}
-		)
-	}
-
-	configWithAuthorization(config: AxiosRequestConfig, token: string) {
-		const { headers = {} } = config
-
-		if (headers.Authorization) {
-			return config
-		}
-
-		return {
-			...config,
-			headers: injectAuthorizationToken(headers, token)
-		}
-	}
-
-	retryRequestQueues(accessTokenOrError: AxiosError | string) {
-		this.retryRequestTasks.forEach(queue => {
-			queue(String(accessTokenOrError))
-		})
-
-		this.retryRequestTasks = []
-	}
-
-	handleRefreshAccessTokenSuccess() {
-		this.isRefreshingAccessToken = false
-		// this.retryRequestQueues(this.auth.accessToken!)
-	}
-
-	handleRefreshAccessTokenFail(error: AxiosError) {
-		this.isRefreshingAccessToken = false
-		this.retryRequestQueues(error)
-	}
-
-	isAccessTokenExpired(error: AxiosError) {
-		return (
-			error.config.url !== `/sessions` &&
-			error.config.url !== `/refresh_token` &&
-			error.response &&
-			error.response.status === 401
-		)
-	}
-
-	async handleProfileInvalidation() {
-		await queryClient.invalidateQueries('user-profile')
-	}
+  set refreshToken(token) {
+    if (typeof token === "undefined" || token === null) {
+      localStorage.removeItem("rft");
+      return;
+    }
+    localStorage.setItem("rft", token);
+  }
 }
