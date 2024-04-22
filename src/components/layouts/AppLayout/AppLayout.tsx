@@ -53,7 +53,7 @@ export function AppLayout({ children }: AppLayoutProps) {
         </Link>
         <Link
           to="/use-context"
-          className={cn("hover:text-secondary line-through", {
+          className={cn("hover:text-secondary", {
             "text-secondary underline": location.pathname === "/use-context",
           })}
         >
@@ -61,7 +61,7 @@ export function AppLayout({ children }: AppLayoutProps) {
         </Link>
         <Link
           to="/use-reducer"
-          className={cn("hover:text-secondary line-through", {
+          className={cn("hover:text-secondary", {
             "text-secondary underline": location.pathname === "/use-reducer",
           })}
         >

@@ -12,6 +12,8 @@ export function HomePage() {
     { path: "/use-ref", name: "useRef" },
     { path: "/use-callback", name: "useCallback" },
     { path: "/use-memo", name: "useMemo" },
+    { path: "/use-context", name: "useContext" },
+    { path: "/use-reducer", name: "useReducer" },
   ];
   return (
     <div className="w-screen h-screen overflow-y-auto  bg-black">

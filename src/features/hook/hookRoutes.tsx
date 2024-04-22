@@ -5,6 +5,8 @@ import { UseEffectExample } from "./pages/UseEffectExample";
 import { UseRefExample } from "./pages/UseRefExample";
 import { UseCallbackExample } from "./pages/UseCallbackExample";
 import { UseMemoExample } from "./pages/UseMemoExample";
+import { UseContextExample } from "./pages/UseContextExample";
+import { UseReducerExample } from "./pages/UseReducerExample";
 
 export const hookRoutes = [
   {
@@ -51,6 +53,22 @@ export const hookRoutes = [
         element: (
           <AppLayout>
             <UseMemoExample />
+          </AppLayout>
+        ),
+      },
+      {
+        path: "use-context",
+        element: (
+          <AppLayout>
+            <UseContextExample />
+          </AppLayout>
+        ),
+      },
+      {
+        path: "use-reducer",
+        element: (
+          <AppLayout>
+            <UseReducerExample />
           </AppLayout>
         ),
       },
