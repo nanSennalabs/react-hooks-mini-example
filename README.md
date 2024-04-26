@@ -1,54 +1,58 @@
-# Vitamin
+# Hook คืออะไร?
 
-[![codecov](https://codecov.io/gh/wtchnm/Vitamin/branch/main/graph/badge.svg?token=H9BBAKGYI0)](https://codecov.io/gh/wtchnm/Vitamin) ![Test workflow](https://github.com/wtchnm/Vitamin/actions/workflows/test.yml/badge.svg) ![CodeQL workflow](https://github.com/wtchnm/Vitamin/actions/workflows/codeql-analysis.yml/badge.svg) [![Total alerts](https://img.shields.io/lgtm/alerts/g/wtchnm/Vitamin.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/wtchnm/Vitamin/alerts/) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/wtchnm/Vitamin.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/wtchnm/Vitamin/context:javascript) [![Vitamin](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/etow1b&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/etow1b/runs) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/wtchnm/Vitamin/blob/main/LICENSE)
+React Hooks เป็นฟีเจอร์ใน React 16.8 เพื่อให้นักพัฒนาสามารถใช้งาน state และ lifecycle ใน functional components โดยไม่ต้องใช้ class components ซึ่งทำให้การจัดการ state ได้สะดวกและรวดเร็วมากยิ่งขึ้น hook ที่นิยมใช้คือ useState เพื่อจัดการ state และ useEffect เพื่อจัดการ lifecycle ของ component นอกจากนี้ยังมี hooks อื่นๆ เช่น useContext, useReducer, และ useRef ที่มีประโยชน์ในการจัดการ state และการเข้าถึง DOM และการทำงานของ component ใน React เป็นต้น
 
-Opinionated Vite starter template.
+# ทำไมต้องเป็น ReactJS Hooks ด้วย?
 
-## Features
+- Reuse Component ได้ง่ายขึ้น เนื่องจาก Hooks ได้แยกในส่วนของ Logic และ View ออกจากกัน
+- Code Clean ขึ้น เนื่องจาก Hooks เปลี่ยนวิธีการจัดการ Life Cycle ที่ยุ่งยาก ให้ง่ายขึ้นกว่าเดิม
+- ไม่ต้องใช้ this ในการ Bind Class แล้ว เนื่องจากการเขียน Hooks นั้นต้องเขียนบน Function Component เท่านั้น
 
-- [Vite](https://vitejs.dev) with [React](https://reactjs.org), [TypeScript](https://www.typescriptlang.org) and [absolute imports](https://github.com/aleclarson/vite-tsconfig-paths).
-- [Tailwind CSS v3](https://tailwindcss.com) with a [basic reset for form styles](https://github.com/tailwindlabs/tailwindcss-forms) and a [Prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) that automatically sorts classes.
-- Use [ESLint](https://eslint.org), [stylelint](https://stylelint.io) and [Prettier](https://prettier.io) on VSCode and before you commit with [Husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged).
-- [PWA](https://github.com/antfu/vite-plugin-pwa) with [17/17 Lighthouse score](https://web.dev/pwa-checklist/).
-- Write unit and integration tests with [Vitest](https://vitest.dev/) and [Testing Library](https://testing-library.com/).
-- Write e2e tests with [Cypress](https://www.cypress.io).
-- GitHub Actions for automatic [dependency updates](https://renovatebot.com/), [CodeQL Analysis](https://securitylab.github.com/tools/codeql), running tests and code coverage with [Codecov](https://about.codecov.io/).
-- Deploy to [Vercel](vercel.com) with pre-configured [SPA fallback](https://vercel.com/docs/configuration#routes/advanced/spa-fallback).
+# กฎการใช้ Hooks
 
-## Getting started
+- ต้องเรียก Hook ที่ส่วน Top Level ของ function เท่านั้น
+- ต้องเรียก Hook ภายใน React function เท่านั้น (function components)
 
-Use this repository as a [GitHub template](https://github.com/wtchnm/Vitamin/generate) or use [degit](https://github.com/Rich-Harris/degit) to clone to your machine with an empty git history:
+# Hook มีอะไรบ้าง
 
-```
-npx degit wtchnm/Vitamin#main my-app
-```
+## useState
 
-Then, install the dependencies:
+คือ Hook ที่สามารถเพิ่ม ReactJS state ไปยัง functional component ที่เคยเป็นแบบ stateless ให้เป็น stateful ได้ useState จะ return ค่าเป็น array ตัวแรกคือ state และ ตัวสองคือ function
+และทุก ๆ ครั้งที่ state ของเรามีการเปลี่ยนแปลงค่า, component น้ันจะเข้าสู่กระบวนการ re-render ใหม่
 
-```
-pnpm install
-```
+## useEffect
 
-### Before you start coding
+คือ Hook ที่สามารถใช้เพื่อบอก React ว่า component ของคุณต้องการทำอะไรบางอย่างหลังจากที่ render แล้ว ซึ่งมันจะถูก execute จาก 3 React component lifecycle ได้แก่ componentDidMount, componentDidUpdate, และ componentWillUnmount lifecycle
 
-- [ ] If you don't plan to use GitHub Actions, delete the `.github` directory.
-- [ ] Clean up the `cypress/integration/index.spec.ts` file.
-- [ ] Change the `favicon.png`, `apple-touch-icon.png`, `android-chrome-192x192.png` and `android-chrome-512x512.png`. [favicon.io](https://favicon.io) is a cool tool for generating these assets.
-- [ ] In the `src` folder, remove the `__tests__`, `api` and `components` folder and the `types.ts` file.
-- [ ] If you don't plan to use `react-query`, remove the query client logic in the `main.tsx` file.
-- [ ] Change the title, description and theme color in the `index.html` and `vite.config.ts`. The [Inter](https://rsms.me/inter/) font is included, so remove it if you want.
-- [ ] Modify or delete the `LICENSE` file.
-- [ ] Change the `name` field in package.json.
+## useMemo
 
-## Scripts
+คือการ Cache ค่า Value ถูกเรียกครั้งแรกเมื่อมีการ Render และครั้งต่อไปเมื่อมีการ Re-Render และ ค่าใน Array deps มีการเปลี่ยนแปลง โดย Return ออกเป็นค่า Value
+useMemo หลักการทำงานก็คือ จะทำการ Cache ข้อมูลเพื่อจำค่าไว้ในหน่วยความจำแคช (Cache Memory) โดยฟังก์ชันจะถูกเรียกใช้งานในครั้งแรกของการ Render และเมื่อค่ามีการเปลี่ยนแปลงเท่านั้น
 
-- `pnpm dev` - start a development server with hot reload.
-- `pnpm build` - build for production. The generated files will be on the `dist` folder.
-- `pnpm preview` - locally preview the production build.
-- `pnpm test` - run unit and integration tests related to changed files based on git.
-- `pnpm test:ci` - run all unit and integration tests in CI mode.
-- `pnpm test:e2e` - run all e2e tests with the Cypress Test Runner.
-- `pnpm test:e2e:headless` - run all e2e tests headlessly.
-- `pnpm format` - format all files with Prettier.
-- `pnpm lint` - runs TypeScript, ESLint and Stylelint.
-- `pnpm validate` - runs `lint`, `test:ci` and `test:e2e:ci`.
+## useCallback
+
+ คือการ Cache Function ไม่ จะถูกเรียกครั้งแรกเมื่อมีการ Render โดยจะถูกเรียกก็ต่อเมื่อสั่ง Call ฟังก์ชัน และ ค่าใน Array deps มีการเปลี่ยนแปลง โดย Return ออกเป็น Function
+useCallback มีหลักการทำงานคล้าย ๆ กับ useMemo เลย คือจะจำการทำงานของ “Function” ไว้ในหน่วยความจำแคช และจะถูกเรียกเมื่อค่าตัวแปรที่เซตไว้มีการเปลี่ยนแปลงหรือเมื่อฟังก์ชันถูกเรียกใช้ แต่ไม่ถูกเรียกตอน Re-Render จะต้องเรียกใช้ function เพื่อใช้งาน 
+
+## useContext 
+
+คือ Hook ที่ช่วยในการจัดการกับ global state คล้าย ๆ กับ redux ซึ่งหลักการของเจ้าตัว Context มันจะเป็นการไปบอก component ที่ชั้น parent หรือ top level component ว่าจะให้ค่า context เป็นอย่างไร แล้ว component ลูกที่อยู่ใต้มันจะสามารถนำค่า context ไปใช้ได้
+
+## useRef 
+
+คือ Hook ที่สามารถเข้าถึงโดยการ Reference ไปที่ DOM element ใช้กับ Functional component สามารถทำ initialValue (.current) ได้ และเมื่อมีการ Re-Render จะไม่สร้างค่า Ref ขึ้นมาใหม่
+
+## useReducer 
+
+คือ hook ที่สามารถจัดการ complex state logic ใน components ซึ่งทำให้ code สะอาดและเข้าใจง่ายขึ้น ในอีกมุมมองหนึ่ง useReducer ก็คือ Redux ในเวอร์ชั่นที่ใช้ง่าย โดยตัด middlewares และ store ออก 
+useReducer มีการจัดการ state management ที่คล้ายๆกับ useState และ redux โดย useReducer มีวิธีเรียกใช้แบบเดียวกับ useState แต่มีวิธีการทำงานแบบ redux ในเรื่อง stata mamagement มีข้อดีเรื่องเป็น pure function ทำให้ต่อยอดไปเขียน unit test ได้ง่าย
+
+# สรุป
+
+React Hooks มี hooks ให้ใช้มากมายไม่ว่าจะเป็น useEffect หรือ useState สามารถนำมาใช้ในการพัฒนาซอฟต์แวร์เนื่องจาก React Hooks เป็นเครื่องมือที่สำคัญในการจัดการ state ของแอพพลิเคชันใน React ทำให้การทำงานกับ state และ lifecycle ของ component เป็นเรื่องง่ายและมีประสิทธิภาพ
+
+# แหล่งที่มา
+
+[Introducing Hooks – React](https://legacy.reactjs.org/docs/hooks-intro.html)
+[React Hooks 101 hooks คืออะไรทำไมต้องใช้](https://devopenworld.com/post/react-hooks-%E0%B8%84%E0%B8%B7%E0%B8%AD%E0%B8%AD%E0%B8%B0%E0%B9%84%E0%B8%A3)
+[[ReactJS] พื้นฐานการใช้ Hook ใน React](https://medium.com/@pratya.yeekhaday/reactjs-%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%90%E0%B8%B2%E0%B8%99%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89-react-hook-80ffd09a8f42)
