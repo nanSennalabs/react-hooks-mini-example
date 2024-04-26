@@ -1,17 +1,22 @@
 import React from "react";
-import { QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 import { App } from "App";
-import { ClientProvider } from "contexts/ClientContext";
-import { client, queryClient } from "client/init";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+    },
+  },
+});
 
 export function Root() {
   return (
     <React.StrictMode>
       <QueryClientProvider client={queryClient}>
-        <ClientProvider client={client}>
-          <App />
-        </ClientProvider>
+        <App />
       </QueryClientProvider>
     </React.StrictMode>
   );
